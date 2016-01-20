@@ -1,0 +1,16 @@
+﻿{
+  "events": [
+    {
+      "name": "Teambuilding 2016",
+      "description": "BYOB",
+      "agenda": [
+        {
+          "name": "Introduction"
+        },
+        {
+          "name": "Drink"
+        }
+      ]
+    }
+  ]
+}
