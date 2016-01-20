@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="cf3a3776-fd9d-45e1-a9fe-8ebee8520508" Publisher="CN=Frode" Version="1.0.0.0" />
+  <Identity Name="35546FrodeHus.EnigmaticEvents" Publisher="CN=C201916E-C61B-4D0A-849F-C5D3566401F7" Version="1.1.6.0" />
   <mp:PhoneIdentity PhoneProductId="cf3a3776-fd9d-45e1-a9fe-8ebee8520508" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>EnigmaticEvents</DisplayName>
-    <PublisherDisplayName>Frode</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <DisplayName>Enigmatic Events</DisplayName>
+    <PublisherDisplayName>Frode Hus</PublisherDisplayName>
+    <Logo>Assets\images\storelogo.png</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
@@ -15,10 +15,14 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="EnigmaticEvents.App">
-      <uap:VisualElements DisplayName="Enigmatic Events" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Shows event information for Enigma" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+      <uap:VisualElements DisplayName="Enigmatic Events" Square150x150Logo="Assets\Images\square150.png" Square44x44Logo="Assets\Images\square44.png" Description="Shows event information for Enigma" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Images\WideLogo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+          </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\Images\SplashScreen.png" BackgroundColor="#f37021" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="portrait" />
         </uap:InitialRotationPreference>

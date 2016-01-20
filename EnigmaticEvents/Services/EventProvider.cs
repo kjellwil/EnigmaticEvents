@@ -21,7 +21,7 @@ namespace EnigmaticEvents.Services
                     Agenda = new List<AgendaItem>
                     {
                         new AgendaItem { Name = "Introduction" },
-                        new AgendaItem { Name = "Drink!" }
+                        new AgendaItem { Name = "Agenda item 2" }
                     }
 
                 },
@@ -31,7 +31,7 @@ namespace EnigmaticEvents.Services
                     Agenda = new List<AgendaItem>
                     {
                         new AgendaItem { Name = "Boring stuff" },
-                        new AgendaItem { Name = "Drink!" }
+                        new AgendaItem { Name = "Other stuff" }
                     }
                 }
             };

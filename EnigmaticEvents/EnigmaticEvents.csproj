@@ -16,7 +16,11 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>EnigmaticEvents_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>EnigmaticEvents_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>C6EB990CD019B4E8A825B540AB4768D9B4FC69EE</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -94,6 +98,7 @@
     </Content>
     <Content Include="Assets\Fonts\Archer-Hairline-Pro.otf" />
     <None Include="DesignTime\sampledata.json" />
+    <None Include="EnigmaticEvents_StoreKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +114,7 @@
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\EnigmaEvent.cs" />
     <Compile Include="Models\EventContact.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventProvider.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
@@ -121,15 +127,17 @@
     <None Include="EnigmaticEvents_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\bouvetlogo.jpg" />
     <Content Include="Assets\Images\shoreline_orange.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\Images\SplashScreen.png" />
+    <Content Include="Assets\Images\square150.png" />
+    <Content Include="Assets\Images\square44.png" />
+    <Content Include="Assets\Images\storelogo.png" />
+    <Content Include="Assets\Images\WideLogo.png" />
+    <Content Include="Assets\Images\WideLogo620.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

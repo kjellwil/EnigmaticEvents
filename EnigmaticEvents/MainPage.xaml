@@ -25,7 +25,7 @@
                         <SolidColorBrush Color="{StaticResource BouvetOrange}"/>
                     </Pivot.Background>
                     <PivotItem Header="Information">
-                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}"/>
+                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}" TextWrapping="Wrap"/>
                     </PivotItem>
                     <PivotItem Header="Agenda" DataContext="{Binding CurrentEvent.Agenda}">
                         <ListView ItemsSource="{Binding}">
@@ -35,6 +35,10 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                    </PivotItem>
+                    <PivotItem Header="My team">
+                        
+
                     </PivotItem>
                     <PivotItem Header="Participants">
                         <ListView ItemsSource="{Binding CurrentEvent.Particpants}"/>
