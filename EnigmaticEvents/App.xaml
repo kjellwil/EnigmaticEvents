@@ -11,6 +11,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/Colours.xaml"/>
                 <ResourceDictionary Source="Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="Styles/Pivot.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
             <vm:ViewModelLocator x:Key="Locator"/>
         </ResourceDictionary>

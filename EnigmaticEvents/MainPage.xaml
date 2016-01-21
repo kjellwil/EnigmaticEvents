@@ -12,11 +12,11 @@
     mc:Ignorable="d"  DataContext="{Binding Source={StaticResource Locator}, Path=EventViewModel}">
     <Page.Resources>
         <commands:CallCommand x:Key="CallCommand"/>
-        <commands:IsAvailableCommand x:Key="IsAvailableCommand"/>
     </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="CellPhone" FontFamily="Segoe MDL2" Command="{StaticResource CallCommand}" CommandParameter="{Binding SelectedItems}"/>
+            <AppBarToggleButton Icon="SelectAll" Click="MultiSelect"/>
+            <AppBarButton Icon="CellPhone" Command="{StaticResource CallCommand}" CommandParameter="{Binding SelectedItems}"/>
             <AppBarButton Icon="Message">
                 <AppBarButton.Flyout>
                     <Flyout>
@@ -38,12 +38,16 @@
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.Resources>
             <converters:StringFormatConverter x:Key="StringFormatConverter"/>
             <CollectionViewSource x:Key="TeamSource" Source="{Binding CurrentEvent.Teams}" IsSourceGrouped="True" ItemsPath="Members"/>
             <CollectionViewSource x:Key="AgendaSource" Source="{Binding CurrentEvent.Agenda}" IsSourceGrouped="True" ItemsPath="AgendaItems"/>
         </Grid.Resources>
-        <SplitView IsPaneOpen="False" DisplayMode="Overlay" VerticalAlignment="Stretch">
+        <!--<SplitView IsPaneOpen="False" DisplayMode="Overlay" VerticalAlignment="Stretch">
             <SplitView.Pane>
                 <ListView Name="EventPicker" ItemsSource="{Binding Events}" Background="Black" VerticalAlignment="Stretch" SelectedItem="{Binding CurrentEvent,Mode=TwoWay}">
                     <ListView.ItemTemplate>
@@ -53,87 +57,84 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </SplitView.Pane>
-            <SplitView.Content>
-                <Pivot Title="Bouvet Enigma" SelectedItem="{Binding SelectedGroup,Mode=TwoWay}">
-                    <Pivot.Background>
-                        <SolidColorBrush Color="{StaticResource BouvetOrange}"/>
-                    </Pivot.Background>
-                    <PivotItem Header="Information">
-                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}" TextWrapping="Wrap"/>
-                    </PivotItem>
-                    <PivotItem Header="Agenda">
-                        <ListView ItemsSource="{Binding Source={StaticResource AgendaSource}}" SelectionMode="None">
-                            <ListView.GroupStyle>
-                                <GroupStyle>
-                                    <GroupStyle.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:dd/MM}'}" FontWeight="Bold"/>
-                                        </DataTemplate>
-                                    </GroupStyle.HeaderTemplate>
-                                </GroupStyle>
-                            </ListView.GroupStyle>
-                            <ListView.ItemTemplate>
+            <SplitView.Content>-->
+        <Pivot Title="Bouvet Enigma" SelectedItem="{Binding SelectedGroup,Mode=TwoWay}" Style="{StaticResource PivotStyle}" Grid.Row="0" VerticalAlignment="Stretch">
+            <PivotItem Header="Information" Style="{StaticResource PivotItemStyle}">
+                <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}" TextWrapping="Wrap"/>
+            </PivotItem>
+            <PivotItem Header="Agenda" Style="{StaticResource PivotItemStyle}">
+                <ListView ItemsSource="{Binding Source={StaticResource AgendaSource}}" SelectionMode="None">
+                    <ListView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
                                 <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:HH:mm}'}" FontWeight="Bold"/>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="1" Margin="20,0,0,0"/>
-                                    </Grid>
+                                    <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:dd/MM}'}" FontWeight="Bold"/>
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                    <PivotItem Header="Teams">
-                        <ListView Name="TeamList" ItemsSource="{Binding Source={StaticResource TeamSource}}" HorizontalContentAlignment="Stretch" SelectionMode="Multiple" SelectionChanged="TeamList_SelectionChanged">
-                            <ListView.GroupStyle>
-                                <GroupStyle>
-                                    <GroupStyle.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Name}"/>
-                                        </DataTemplate>
-                                    </GroupStyle.HeaderTemplate>
-                                </GroupStyle>
-                            </ListView.GroupStyle>
-                            <ListView.ItemTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListView.GroupStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:HH:mm}'}" FontWeight="Bold"/>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="1" Margin="20,0,0,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Teams" Style="{StaticResource PivotItemStyle}">
+                <ListView Name="TeamList" ItemsSource="{Binding Source={StaticResource TeamSource}}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="TeamList_SelectionChanged">
+                    <ListView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
                                 <DataTemplate>
-                                    <Grid HorizontalAlignment="Stretch">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="200"/>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="150"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Role}" Grid.Column="2" Margin="0,0,0,0"/>
-                                    </Grid>
+                                    <TextBlock Text="{Binding Name}"/>
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListView.GroupStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Role}" Grid.Column="2" Margin="0,0,0,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-                    </PivotItem>
-                    <PivotItem Header="Contacts">
-                        <ListView ItemsSource="{Binding CurrentEvent.Contacts}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </PivotItem>
-                </Pivot>
-            </SplitView.Content>
-        </SplitView>
+            </PivotItem>
+            <PivotItem Header="Contacts" Style="{StaticResource PivotItemStyle}">
+                <ListView ItemsSource="{Binding CurrentEvent.Contacts}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+        </Pivot>
+        <!--</SplitView.Content>
+        </SplitView>-->
 
-        <Image Source="/Assets/Images/shoreline_orange.png" VerticalAlignment="Bottom"/>
+        <Image Source="/Assets/Images/shoreline_orange.png" VerticalAlignment="Bottom" Grid.Row="1"/>
     </Grid>
 </Page>

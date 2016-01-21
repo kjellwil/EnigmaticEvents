@@ -31,5 +31,7 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <uap:Capability Name="chat" />
+    <uap:Capability Name="phoneCall" />
   </Capabilities>
 </Package>

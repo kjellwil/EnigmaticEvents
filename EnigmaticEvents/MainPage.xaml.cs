@@ -1,18 +1,7 @@
 ﻿using EnigmaticEvents.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,6 +20,18 @@ namespace EnigmaticEvents
         private void TeamList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             (DataContext as EventViewModel).SelectedItems = TeamList.SelectedItems.ToList() ;
+        }
+
+        private void MultiSelect(object sender, RoutedEventArgs e)
+        {
+            if(TeamList.SelectionMode == ListViewSelectionMode.Multiple)
+            {
+                TeamList.SelectionMode = ListViewSelectionMode.Single;
+            }
+            else
+            {
+                TeamList.SelectionMode = ListViewSelectionMode.Multiple;
+            }
         }
     }
 }

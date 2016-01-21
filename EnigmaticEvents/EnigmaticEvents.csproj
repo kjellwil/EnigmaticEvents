@@ -106,7 +106,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\CallCommand.cs" />
-    <Compile Include="Commands\IsAvailableCommand.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
@@ -160,6 +159,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Styles\Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\Pivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

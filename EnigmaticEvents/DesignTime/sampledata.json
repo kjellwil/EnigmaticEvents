@@ -1,63 +1,359 @@
 ﻿[
   {
     "name": "Teambuilding 2016",
-    "description": "BYOB",
+    "description": "Scandic Air Hotell på Sola. Enigma tar med seg administrasjonen og kjører teambuilding",
     "agenda": [
       {
-        "time": "2016-01-29",
+
+        "time": "2016-1-29",
         "agendaitems": [
           {
-            "name": "Introduction",
-            "time": "2016-01-29T10:00:00"
+            "name": "Velkommen - kaffe/snack/mat",
+            "time": "2016-01-29T16:15:00"
           },
           {
-            "name": "Drink",
-            "time": "2016-01-29T10:00:00"
+            "name": "VS Kavalkade 20 min/ Arild Enhetsinfo 20 min/Kjell leveranse 20 min",
+            "time": "2016-01-29T16:45:00"
+          },
+          {
+            "name": "Kaffepause",
+            "time": "2016-01-29T17:45:00"
+          },
+          {
+            "name": "Kjetil om Salg/Marked - 30 min, Gruppearbeid 5+ 5 (presenteres under middag)",
+            "time": "2016-01-29T18:00:00"
+          },
+          {
+            "name": "Pause - klargjøring middag",
+            "time": "2016-01-29T19:00:00"
+          },
+          {
+            "name": "3 retters bankettmiddag",
+            "time": "2016-01-29T20:00:00"
+          },
+          {
+            "name": "Aktivitet",
+            "time": "2016-01-29T22:00:00"
+          },
+          {
+            "name": "Gå å legge seg",
+            "time": "2016-01-29T23:30:00"
           }
         ]
       },
       {
-        "time": "2016-01-30",
+        "time": "2016-1-30",
         "agendaitems": [
           {
-            "name": "Introduction",
-            "time": "2016-01-29T10:00:00"
+            "name": "Frokost og utsjekk rom",
+            "time": "2016-01-30T08:00:00"
           },
           {
-            "name": "Drink",
-            "time": "2016-01-29T10:00:00"
+            "name": "Våkn opp - frisk luft, konkurranse",
+            "time": "2016-01-30T09:30:00"
+          },
+          {
+            "name": "Enigma Konsulentrollen- Arild",
+            "time": "2016-01-30T10:30:00"
+          },
+          {
+            "name": "Gruppearbeid, Presentasjon Fotokonkurransen",
+            "time": "2016-01-30T11:00:00"
+          },
+          {
+            "name": "Resultater konkurranse",
+            "time": "2016-01-30T12:00:00"
+          },
+          {
+            "name": "Lunsj",
+            "time": "2016-01-30T12:30:00"
           }
         ]
       }
     ],
     "teams": [
       {
-        "name": "Løgnakkar",
+        "name": "Lag 1",
         "members": [
           {
-            "name": "Drylert Nakke",
+            "name": "Frode Hus",
             "phonenumber": "123456",
-            "role": "team lead"
+            "role": "Enigma"
           },
           {
-            "name": "Vatt Nisse",
+            "name": "Morten Simonsen",
             "phonenumber": "123456",
-            "role": "team member"
+            "role": "Enigma"
+          },
+          {
+            "name": "Christian Rasmussen",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Jon Olav Abeland",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Hanne Loug",
+            "phonenumber": "123456",
+            "role": "Enigma"
           }
         ]
       },
       {
-        "name": "Skallebank",
+        "name": "Lag 2",
         "members": [
           {
-            "name": "Han Derane",
+            "name": "Jens Otto Hatlevold",
             "phonenumber": "123456",
-            "role": "team lead"
+            "role": "Enigma"
           },
           {
-            "name": "Sogle Pave",
+            "name": "Kine Geliassen",
             "phonenumber": "123456",
-            "role": "team member"
+            "role": "Enigma"
+          },
+          {
+            "name": "Jostein Søiland",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Simon Erlandsen",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Doney Abraham",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 3",
+        "members": [
+          {
+            "name": "Svein Inge Carlsen",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Ronny Navelsaker",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Alexander Hunt",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Hai Bui Ngoc",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Ragnhild Holte Bøe",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 4",
+        "members": [
+          {
+            "name": "Joar Ulversøy",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "June Slagstad",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Hans Dahle",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Jacob Solberg Holm",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Sandesh Kamble",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 5",
+        "members": [
+          {
+            "name": "Kamilla Nyborg Gregertsen",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Stian Galapte-Edvardsen",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Tor Einar Gudmestad",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Espen Pettersen",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Pedro Dutra",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 6",
+        "members": [
+          {
+            "name": "Martin Førre",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Rita Våge",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Odd Jarle Tednes",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Christopher Walker",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Lars Inge Reinsnos",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 7",
+        "members": [
+          {
+            "name": "Thor Morten Smerud",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Trine Skadal",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Andreas Herigstad",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Ståle Wærum",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Ragnhild Holte Bøe",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 8",
+        "members": [
+          {
+            "name": "Håvard Hebnes",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Frank Gryte",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Kjetil Braadland",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Terje Hognestad",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          },
+          {
+            "name": "Torgeir Thorsteinsson",
+            "phonenumber": "123456",
+            "role": "Enigma"
+          }
+        ]
+      },
+      {
+        "name": "Lag 9",
+        "members": [
+          {
+            "name": "Sandra Lorentzen",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
+          },
+          {
+            "name": "Remi Øvstebø",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
+          },
+          {
+            "name": "Olga",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
+          },
+          {
+            "name": "Kristin Fosshagen Hald",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
+          }
+        ]
+      },
+      {
+        "name": "Lag 10",
+        "members": [
+          {
+            "name": "Miriam Skår",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
+          },
+          {
+            "name": "Sameer Kassam",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
+          },
+          {
+            "name": "Møyfrid Aanestad",
+            "phonenumber": "123456",
+            "role": "Administrasjon"
           }
         ]
       }
@@ -65,15 +361,15 @@
     "contacts": [
       {
         "name": "Ariel Aarnes",
-        "phonenumber": "12345"
+        "phonenumber": "913 56 757"
       },
       {
         "name": "Obi-wan Wilhelmsen",
-        "phonenumber": "12345"
+        "phonenumber": "915 70 383"
       },
       {
         "name": "K-mart",
-        "phonenumber": "12345"
+        "phonenumber": "924 29 272"
       }
     ]
   }

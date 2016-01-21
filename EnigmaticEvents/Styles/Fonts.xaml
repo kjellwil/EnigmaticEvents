@@ -4,6 +4,7 @@
     xmlns:local="using:EnigmaticEvents.Styles">
     <Style x:Key="BaseTextBlock" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Assets/Fonts/Archer-Hairline-Pro.otf#Archer Hairline"/>
+        <Setter Property="Foreground" Value="White"/>
     </Style>
 
     <Style x:Key="HeaderText" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlock}">
