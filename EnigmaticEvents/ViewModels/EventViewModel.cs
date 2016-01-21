@@ -19,9 +19,9 @@ namespace EnigmaticEvents.ViewModels
             CurrentEvent = Events.FirstOrDefault();
         }
 
-        private IList<EnigmaEvent> _events;
+        private List<EnigmaEvent> _events;
 
-        public IList<EnigmaEvent> Events
+        public List<EnigmaEvent> Events
         {
             get
             {

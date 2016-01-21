@@ -6,9 +6,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModels="using:EnigmaticEvents.ViewModels"
     x:Class="EnigmaticEvents.MainPage"
+    xmlns:converters="using:EnigmaticEvents.Converters"
     mc:Ignorable="d"  DataContext="{Binding Source={StaticResource Locator}, Path=EventViewModel}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <converters:StringFormatConverter x:Key="StringFormatConverter"/>
+            <CollectionViewSource x:Key="TeamSource" Source="{Binding CurrentEvent.Teams}" IsSourceGrouped="True" ItemsPath="Members"/>
+        </Grid.Resources>
         <SplitView IsPaneOpen="False" DisplayMode="Overlay" VerticalAlignment="Stretch">
             <SplitView.Pane>
                 <ListView Name="EventPicker" ItemsSource="{Binding Events}" Background="Black" VerticalAlignment="Stretch" SelectedItem="{Binding CurrentEvent,Mode=TwoWay}">
@@ -27,25 +32,56 @@
                     <PivotItem Header="Information">
                         <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}" TextWrapping="Wrap"/>
                     </PivotItem>
-                    <PivotItem Header="Agenda" DataContext="{Binding CurrentEvent.Agenda}">
-                        <ListView ItemsSource="{Binding}">
+                    <PivotItem Header="Agenda">
+                        <ListView ItemsSource="{Binding CurrentEvent.Agenda}" SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:HH:mm - dd/MM}'}" FontWeight="Bold"/>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="1" Margin="20,0,0,0"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </PivotItem>
+                    <PivotItem Header="Teams">
+                        <ListView ItemsSource="{Binding Source={StaticResource TeamSource}}">
+                            <ListView.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </DataTemplate>
+                                    </GroupStyle.HeaderTemplate>
+                                </GroupStyle>
+                            </ListView.GroupStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                    </PivotItem>
-                    <PivotItem Header="My team">
-                        
-
-                    </PivotItem>
-                    <PivotItem Header="Participants">
-                        <ListView ItemsSource="{Binding CurrentEvent.Particpants}"/>
 
                     </PivotItem>
                     <PivotItem Header="Contacts">
-                        <ListView ItemsSource="{Binding CurrentEvent.Contacts}"/>
+                        <ListView ItemsSource="{Binding CurrentEvent.Contacts}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </PivotItem>
                 </Pivot>
             </SplitView.Content>

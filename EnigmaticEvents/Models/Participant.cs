@@ -2,7 +2,8 @@
 
 namespace EnigmaticEvents.Models
 {
-    public class Participant : BindableBase
+    public class Participant : EventContact
     {
+        public string Role { get; set; }
     }
 }

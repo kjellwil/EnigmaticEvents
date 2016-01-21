@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EnigmaticEvents.Models;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace EnigmaticEvents.Services
 {
@@ -12,30 +15,21 @@ namespace EnigmaticEvents.Services
     {
         public Task<List<EnigmaEvent>> GetEventsAsync()
         {
-            var events = new List<EnigmaEvent>
-            {
-                new EnigmaEvent
-                {
-                    Name = "Teambuilding 2016",
-                    Description = "We do some business stuff then we dress up in togas and go nuts!",
-                    Agenda = new List<AgendaItem>
-                    {
-                        new AgendaItem { Name = "Introduction" },
-                        new AgendaItem { Name = "Agenda item 2" }
-                    }
-
-                },
-                new EnigmaEvent
-                {
-                    Name = "Partytime excellent",
-                    Agenda = new List<AgendaItem>
-                    {
-                        new AgendaItem { Name = "Boring stuff" },
-                        new AgendaItem { Name = "Other stuff" }
-                    }
-                }
-            };
+            var events = LoadFromSampleData();
             return Task.FromResult(events);
+        }
+
+        private List<EnigmaEvent> LoadFromSampleData()
+        {
+            using (var file = File.OpenText("./DesignTime/sampledata.json"))
+            {
+                using (var reader = new JsonTextReader(file))
+                {
+                    var jArray = (JArray)JToken.ReadFrom(reader);
+                    var events = jArray.ToObject<List<EnigmaEvent>>();
+                    return events;
+                }
+            }
         }
     }
 }

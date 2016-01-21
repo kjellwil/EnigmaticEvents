@@ -42,10 +42,9 @@ namespace EnigmaticEvents.Models
         private string _description;
 
         public List<AgendaItem> Agenda { get; set; }
-        public Team Team { get; set; }
+        public List<Team> Teams { get; set; }
 
         public List<EventContact> Contacts { get; set; }
 
-        public List<Participant> Participants { get; set; }
     }
 }

@@ -1,16 +1,54 @@
-﻿{
-  "events": [
-    {
-      "name": "Teambuilding 2016",
-      "description": "BYOB",
-      "agenda": [
-        {
-          "name": "Introduction"
-        },
-        {
-          "name": "Drink"
-        }
-      ]
-    }
-  ]
-}
+﻿[
+  {
+    "name": "Teambuilding 2016",
+    "description": "BYOB",
+    "agenda": [
+      {
+        "name": "Introduction",
+        "time": "2016-01-29T10:00:00"
+      },
+      {
+        "name": "Drink",
+        "time": "2016-01-29T10:00:00"
+      }
+    ],
+    "teams": [
+      {
+        "name": "Løgnakkar",
+        "members": [
+          {
+            "name": "Drylert Nakke",
+            "phonenumber": "123456",
+            "role": "team lead"
+          },
+          {
+            "name": "Vatt Nisse",
+            "phonenumber": "123456",
+            "role": "team member"
+          }
+        ]
+      },
+      {
+        "name": "Skallebank",
+        "members": [
+          {
+            "name": "Han Derane",
+            "phonenumber": "123456",
+            "role": "team lead"
+          },
+          {
+            "name": "Sogle Pave",
+            "phonenumber": "123456",
+            "role": "team member"
+          }
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "name": "Ariel Aarnes",
+        "phonenumber": "12345"
+      }
+    ]
+  }
+]

@@ -10,5 +10,6 @@ namespace EnigmaticEvents.Models
     public class AgendaItem : BindableBase
     {
         public string Name { get; set; }
+        public DateTime Time { get; set; }
     }
 }
