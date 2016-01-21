@@ -4,12 +4,30 @@
     "description": "BYOB",
     "agenda": [
       {
-        "name": "Introduction",
-        "time": "2016-01-29T10:00:00"
+        "time": "2016-01-29",
+        "agendaitems": [
+          {
+            "name": "Introduction",
+            "time": "2016-01-29T10:00:00"
+          },
+          {
+            "name": "Drink",
+            "time": "2016-01-29T10:00:00"
+          }
+        ]
       },
       {
-        "name": "Drink",
-        "time": "2016-01-29T10:00:00"
+        "time": "2016-01-30",
+        "agendaitems": [
+          {
+            "name": "Introduction",
+            "time": "2016-01-29T10:00:00"
+          },
+          {
+            "name": "Drink",
+            "time": "2016-01-29T10:00:00"
+          }
+        ]
       }
     ],
     "teams": [
@@ -47,6 +65,14 @@
     "contacts": [
       {
         "name": "Ariel Aarnes",
+        "phonenumber": "12345"
+      },
+      {
+        "name": "Obi-wan Wilhelmsen",
+        "phonenumber": "12345"
+      },
+      {
+        "name": "K-mart",
         "phonenumber": "12345"
       }
     ]

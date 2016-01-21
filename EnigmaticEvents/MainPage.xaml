@@ -7,12 +7,41 @@
     xmlns:ViewModels="using:EnigmaticEvents.ViewModels"
     x:Class="EnigmaticEvents.MainPage"
     xmlns:converters="using:EnigmaticEvents.Converters"
+    xmlns:commands="using:EnigmaticEvents.Commands"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"  DataContext="{Binding Source={StaticResource Locator}, Path=EventViewModel}">
-
+    <Page.Resources>
+        <commands:CallCommand x:Key="CallCommand"/>
+        <commands:IsAvailableCommand x:Key="IsAvailableCommand"/>
+    </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="CellPhone" FontFamily="Segoe MDL2" Command="{StaticResource CallCommand}" CommandParameter="{Binding SelectedItems}"/>
+            <AppBarButton Icon="Message">
+                <AppBarButton.Flyout>
+                    <Flyout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0" PlaceholderText="Enter text message" Name="TextMessage"/>
+                            <Button Grid.Column="1" Margin="5,0,0,0" Command="{Binding SendSmsCommand}" CommandParameter="{Binding ElementName=TextMessage,Path=Text}">
+                                <Button.Content>
+                                    <SymbolIcon Symbol="Send" />
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
             <converters:StringFormatConverter x:Key="StringFormatConverter"/>
             <CollectionViewSource x:Key="TeamSource" Source="{Binding CurrentEvent.Teams}" IsSourceGrouped="True" ItemsPath="Members"/>
+            <CollectionViewSource x:Key="AgendaSource" Source="{Binding CurrentEvent.Agenda}" IsSourceGrouped="True" ItemsPath="AgendaItems"/>
         </Grid.Resources>
         <SplitView IsPaneOpen="False" DisplayMode="Overlay" VerticalAlignment="Stretch">
             <SplitView.Pane>
@@ -25,7 +54,7 @@
                 </ListView>
             </SplitView.Pane>
             <SplitView.Content>
-                <Pivot Title="Bouvet Enigma">
+                <Pivot Title="Bouvet Enigma" SelectedItem="{Binding SelectedGroup,Mode=TwoWay}">
                     <Pivot.Background>
                         <SolidColorBrush Color="{StaticResource BouvetOrange}"/>
                     </Pivot.Background>
@@ -33,7 +62,16 @@
                         <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}" TextWrapping="Wrap"/>
                     </PivotItem>
                     <PivotItem Header="Agenda">
-                        <ListView ItemsSource="{Binding CurrentEvent.Agenda}" SelectionMode="None">
+                        <ListView ItemsSource="{Binding Source={StaticResource AgendaSource}}" SelectionMode="None">
+                            <ListView.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:dd/MM}'}" FontWeight="Bold"/>
+                                        </DataTemplate>
+                                    </GroupStyle.HeaderTemplate>
+                                </GroupStyle>
+                            </ListView.GroupStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -41,7 +79,7 @@
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:HH:mm - dd/MM}'}" FontWeight="Bold"/>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:HH:mm}'}" FontWeight="Bold"/>
                                         <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="1" Margin="20,0,0,0"/>
                                     </Grid>
                                 </DataTemplate>
@@ -49,7 +87,7 @@
                         </ListView>
                     </PivotItem>
                     <PivotItem Header="Teams">
-                        <ListView ItemsSource="{Binding Source={StaticResource TeamSource}}">
+                        <ListView Name="TeamList" ItemsSource="{Binding Source={StaticResource TeamSource}}" HorizontalContentAlignment="Stretch" SelectionMode="Multiple" SelectionChanged="TeamList_SelectionChanged">
                             <ListView.GroupStyle>
                                 <GroupStyle>
                                     <GroupStyle.HeaderTemplate>
@@ -61,7 +99,16 @@
                             </ListView.GroupStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}"/>
+                                    <Grid HorizontalAlignment="Stretch">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200"/>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="150"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding Role}" Grid.Column="2" Margin="0,0,0,0"/>
+                                    </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -77,7 +124,7 @@
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
-                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1"/>
+                                        <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -86,6 +133,7 @@
                 </Pivot>
             </SplitView.Content>
         </SplitView>
+
         <Image Source="/Assets/Images/shoreline_orange.png" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

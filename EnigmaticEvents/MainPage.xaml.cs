@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnigmaticEvents.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace EnigmaticEvents
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void TeamList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (DataContext as EventViewModel).SelectedItems = TeamList.SelectedItems.ToList() ;
         }
     }
 }
