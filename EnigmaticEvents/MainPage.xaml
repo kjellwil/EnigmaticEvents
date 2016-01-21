@@ -40,7 +40,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <converters:StringFormatConverter x:Key="StringFormatConverter"/>
@@ -59,11 +59,11 @@
             </SplitView.Pane>
             <SplitView.Content>-->
         <Pivot Title="Bouvet Enigma" SelectedItem="{Binding SelectedGroup,Mode=TwoWay}" Style="{StaticResource PivotStyle}" Grid.Row="0" VerticalAlignment="Stretch">
-            <PivotItem Header="Information" Style="{StaticResource PivotItemStyle}">
+            <PivotItem Header="Informasjon" Style="{StaticResource PivotItemStyle}">
                 <TextBlock Style="{StaticResource NormalText}" Text="{Binding CurrentEvent.Description}" TextWrapping="Wrap"/>
             </PivotItem>
             <PivotItem Header="Agenda" Style="{StaticResource PivotItemStyle}">
-                <ListView ItemsSource="{Binding Source={StaticResource AgendaSource}}" SelectionMode="None">
+                <ListView ItemsSource="{Binding Source={StaticResource AgendaSource}}" SelectionMode="None" HorizontalContentAlignment="Stretch">
                     <ListView.GroupStyle>
                         <GroupStyle>
                             <GroupStyle.HeaderTemplate>
@@ -77,17 +77,17 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Style="{StaticResource NormalText}" Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:HH:mm}'}" FontWeight="Bold"/>
-                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="1" Margin="20,0,0,0"/>
+                                <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="1" Margin="20,0,0,0" TextWrapping="Wrap"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>
-            <PivotItem Header="Teams" Style="{StaticResource PivotItemStyle}">
+            <PivotItem Header="Lag" Style="{StaticResource PivotItemStyle}">
                 <ListView Name="TeamList" ItemsSource="{Binding Source={StaticResource TeamSource}}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectionChanged="TeamList_SelectionChanged">
                     <ListView.GroupStyle>
                         <GroupStyle>
@@ -115,14 +115,14 @@
                 </ListView>
 
             </PivotItem>
-            <PivotItem Header="Contacts" Style="{StaticResource PivotItemStyle}">
+            <PivotItem Header="Kontaktinfo" Style="{StaticResource PivotItemStyle}">
                 <ListView ItemsSource="{Binding CurrentEvent.Contacts}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Style="{StaticResource NormalText}" Text="{Binding Name}" Grid.Column="0"/>
                                 <TextBlock Style="{StaticResource NormalText}" Text="{Binding PhoneNumber}" Grid.Column="1" Margin="20,0,0,0"/>
