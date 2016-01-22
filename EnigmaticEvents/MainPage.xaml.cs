@@ -33,5 +33,15 @@ namespace EnigmaticEvents
                 TeamList.SelectionMode = ListViewSelectionMode.Multiple;
             }
         }
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((EventPivot.SelectedItem as PivotItem)?.Header.ToString() == "Lag")
+            {
+                CmdBar.IsOpen = true;
+            }
+            else
+                CmdBar.IsOpen = false;
+        }
     }
 }
