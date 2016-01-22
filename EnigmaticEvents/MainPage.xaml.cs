@@ -32,6 +32,9 @@ namespace EnigmaticEvents
             {
                 TeamList.SelectionMode = ListViewSelectionMode.Multiple;
             }
+            CmdBar.IsOpen = true;
+            CmdBar.IsSticky = true;
+
         }
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
