@@ -77,27 +77,27 @@
         "members": [
           {
             "name": "Frode Hus",
-            "phonenumber": "123456",
+            "phonenumber": "911 38 077",
             "role": "Enigma"
           },
           {
             "name": "Morten Simonsen",
-            "phonenumber": "123456",
+            "phonenumber": "988 10 173",
             "role": "Enigma"
           },
           {
             "name": "Christian Rasmussen",
-            "phonenumber": "123456",
+            "phonenumber": "908 85 117",
             "role": "Enigma"
           },
           {
             "name": "Jon Olav Abeland",
-            "phonenumber": "123456",
+            "phonenumber": "900 90 809",
             "role": "Enigma"
           },
           {
             "name": "Hanne Loug",
-            "phonenumber": "123456",
+            "phonenumber": "913 63 969",
             "role": "Enigma"
           }
         ]
@@ -107,12 +107,12 @@
         "members": [
           {
             "name": "Jens Otto Hatlevold",
-            "phonenumber": "123456",
+            "phonenumber": "456 00 855",
             "role": "Enigma"
           },
           {
             "name": "Kine Geliassen",
-            "phonenumber": "123456",
+            "phonenumber": "986 81 348",
             "role": "Enigma"
           },
           {
@@ -122,12 +122,12 @@
           },
           {
             "name": "Simon Erlandsen",
-            "phonenumber": "123456",
+            "phonenumber": "938 61 232",
             "role": "Enigma"
           },
           {
             "name": "Doney Abraham",
-            "phonenumber": "123456",
+            "phonenumber": "950 81 340",
             "role": "Enigma"
           }
         ]
@@ -137,27 +137,27 @@
         "members": [
           {
             "name": "Svein Inge Carlsen",
-            "phonenumber": "123456",
+            "phonenumber": "917 16 000",
             "role": "Enigma"
           },
           {
             "name": "Ronny Navelsaker",
-            "phonenumber": "123456",
+            "phonenumber": "480 19 847",
             "role": "Enigma"
           },
           {
             "name": "Alexander Hunt",
-            "phonenumber": "123456",
+            "phonenumber": "996 99 297",
             "role": "Enigma"
           },
           {
             "name": "Hai Bui Ngoc",
-            "phonenumber": "123456",
+            "phonenumber": "452 19 155",
             "role": "Enigma"
           },
           {
             "name": "Ragnhild Holte Bøe",
-            "phonenumber": "123456",
+            "phonenumber": "482 00 862",
             "role": "Enigma"
           }
         ]
@@ -272,11 +272,6 @@
           },
           {
             "name": "Ståle Wærum",
-            "phonenumber": "123456",
-            "role": "Enigma"
-          },
-          {
-            "name": "Ragnhild Holte Bøe",
             "phonenumber": "123456",
             "role": "Enigma"
           }
